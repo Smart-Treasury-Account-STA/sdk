@@ -20,6 +20,7 @@ jobs:
 
       - uses: actions/setup-node@v7
         with:
+          node-version: 24
           cache: pnpm
 
       - run: pnpm install --frozen-lockfile
@@ -38,4 +39,8 @@ jobs:
             exit 1
           fi
 
+      # OIDC trusted publishing: no registry-url/NODE_AUTH_TOKEN here on purpose.
+      # Either defeats OIDC by forcing npm onto token auth instead, which is
+      # what produced ENEEDAUTH even though no real token was ever configured.
+      - run: npm install -g npm@latest # trusted publishing needs npm >=11.5.0
       - run: npm publish --access public
