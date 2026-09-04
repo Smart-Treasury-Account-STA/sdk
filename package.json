@@ -1,6 +1,6 @@
 {
   "name": "sta-sdk",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "TypeScript SDK for the Smart Treasury Account (STA) Soroban contracts: auth-entry construction, transaction preparation, typed event parsing, and typed state reads.",
   "keywords": [
     "stellar",
